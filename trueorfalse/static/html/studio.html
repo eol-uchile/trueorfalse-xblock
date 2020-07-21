@@ -1,0 +1,89 @@
+{% load i18n %}
+
+<div class="wrapper-comp-settings is-active editor-with-buttons" id="settings-tab">
+    <ul class="list-input settings-list">
+      <li class="field comp-setting-entry is-set">
+        <div class="wrapper-comp-setting">
+          <label class="label setting-label" for="display_name">{% trans field_display_name.display_name %}</label>
+          <input class="input setting-input" name="display_name" id="display_name" value="{{ xblock.display_name }}" type="text" />
+        </div>
+      </li>
+      <li class="field comp-setting-entry is-set">
+        <div class="wrapper-comp-setting">
+          <label class="label setting-label" for="weight">{% trans field_weight.display_name %}</label>
+          <input class="input setting-input" name="weight" id="weight" 
+                value="{{ xblock.weight|floatformat }}" 
+                pattern="\d*"
+                type="number" 
+                step="{{ field_weight.values.step }}"
+                min="{{ field_weight.values.min }}" />
+        </div>
+        <span class="tip setting-help">{% trans field_weight.help %}</span>
+      </li>
+      <li class="field comp-setting-entry is-set">
+        <div class="wrapper-comp-setting">
+          <label class="label setting-label" for="max_attempts">{% trans field_max_attempts.display_name %}</label>
+          <input class="input setting-input" name="max_attempts" id="max_attempts" 
+                value="{{ xblock.max_attempts }}" 
+                type="number" 
+                pattern="\d*"
+                step="{{ field_max_attempts.values.step }}"
+                min="{{ field_max_attempts.values.min }}" />
+        </div>
+        <span class="tip setting-help">{% trans field_max_attempts.help %}</span>
+      </li>
+      <li class="field comp-setting-entry is-set">
+        <div class="wrapper-comp-setting">
+          <label class="label setting-label" for="show_answer">{% trans field_show_answer.display_name %}</label>
+          <select class="show_answer" name="show_answer">
+            <option value="Finalizado" {% if xblock.show_answer == 'Finalizado' %}selected{% endif %}>
+              Finalizado
+            </option>
+            <option value="Ocultar" {% if xblock.show_answer == 'Ocultar' %}selected{% endif %}>
+              Ocultar
+            </option>
+          </select>
+        </div>
+        <span class="tip setting-help">{% trans field_show_answer.help %}</span>
+      </li>
+      <li class="field comp-setting-entry is-set" id="questions_list">
+        <div class="wrapper-comp-setting">
+          <label class="label setting-label">{% trans 'Listado de Preguntas' %}</label>
+        </div>
+        {% for key, value in questions_list %}
+          <div class="border-question div-question-{{key}}">
+            <div class="wrapper-comp-setting">
+              <label class="label setting-label" for="question">{% trans 'Pregunta' %}</label>
+              <input class="input setting-input" name="question" question-id="{{key}}" value="{{value.question}}" type="text" />
+            </div>
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="answer">{% trans 'Respuesta' %}</label>
+                <select name="answer" answer-id="{{key}}">
+                    <option value="true" {% if value.answer %} selected {% endif %}>{% trans 'Verdadero' %}</option>
+                    <option value="false" {% if not value.answer %} selected {% endif %}>{% trans 'Falso' %}</option>
+                </select>
+            </div>
+            <div class="setting-button">
+              <button remove-id="{{key}}" class="question-button remove-button">{% trans 'Eliminar Pregunta' %}</button>
+            </div>
+          </div>
+        {% endfor %}
+    </li>
+
+    <li class="field comp-setting-entry is-set" style="border:none; padding-top:0px;">
+      <div class="setting-button">
+        <button class="question-button button add-button">{% trans 'Agregar otra Pregunta' %}</button>
+      </div>
+    </li>
+    </ul>
+    <div class="xblock-actions">
+      <ul>
+        <li class="action-item">
+          <a href="#" class="button action-primary save-button">{% trans 'Save' %}</a>
+        </li>
+        <li class="action-item">
+          <a href="#" class="button cancel-button">{% trans 'Cancel' %}</a>
+        </li>
+      </ul>
+    </div>
+  </div>

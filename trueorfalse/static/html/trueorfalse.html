@@ -1,0 +1,84 @@
+{% load i18n %}
+<div class="problem trueorfalse_block {{theme}} problems-wrapper">
+  <h3 class="vof-header problem-header">{{ xblock.display_name }}</h3>
+  <div class="problem-progress">{{ problem_progress }}</div>
+  {% if show_correctness != 'never'  or indicator_class == 'unanswered' %}
+    <div class="status {{ indicator_class }}" id="status_{{ location }}">
+  {% else %}
+    <div class="status " id="status_{{ location }}">
+  {% endif %}
+  </div>
+    {% if no_more_attempts or questions_list|length == 0 %}
+      <div class="tablagrande noclick" id="vftable2">
+    {% else %}
+      <div class="tablagrande" id="vftable2">
+    {% endif %}
+      {% for key, value in questions_list %}
+        <div class="dtrow">
+            <div class="dtcell1">{{value.question|safe}}</div>
+            <div class="dtcell3">
+                <div class="opcV opcV{{key}} opcion">
+                V<input type="radio" class="radiovof" pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" value="verdadero"/>
+            </div>
+            </div>
+            <div class="dtcell2">
+                <div class="opcF opcF{{key}} opcion">
+                F<input type="radio" class="radiovof" pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" value="falso"/>
+            </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+  <div class="divrespuestas">
+      {% for key, value in xblock.student_answers.items %}
+        {% if value != ''%}
+        <input type="hidden" class="lasrespuestas" respuesta-id={{key}} value="{{value}}">
+        {% endif %}
+      {% endfor %}
+  </div>
+  <div class="elticket">
+    {%if xblock.is_answered and show_correctness != 'never'%}
+      {%if xblock.score >= 1%}
+        <img src="{{ image_path }}correct-icon.png"/>
+      {% elif xblock.score <= 0 %}
+        <img src="{{ image_path }}incorrect-icon.png"/>
+      {% else %}
+        <img src="{{ image_path }}partial-icon.png"/>
+      {%endif%}
+    {% endif%}
+  </div>
+  <div class="action">
+            {% if no_more_attempts or questions_list|length == 0 %}
+              <button class="check Submit submit" data-checking="Enviando..." data-value="Enviar" aria-describedby="submission_feedback_{{ location }}" disabled="disabled">
+            {% elif is_past_due or not xblock.is_answered %}
+              <button class="check Submit submit" data-checking="Enviando..." data-value="Enviar" aria-describedby="submission_feedback_{{ location }}" disabled="disabled">
+            {% else %}
+              <button class="check Submit submit" data-checking="Enviando..." data-value="Enviar" aria-describedby="submission_feedback_{{ location }}">
+            {% endif %}
+                <span>Enviar</span>
+              </button>
+              <span id="submission_feedback_{{ location }}" class="submission-feedback">
+                {% if xblock.max_attempts and xblock.max_attempts > 0 %}
+                    Has realizado {{xblock.attempts}} de {{xblock.max_attempts}} intentos
+                {% endif %}
+              </span>
+            {% if xblock.show_answer == 'Mostrar' and show_correctness != 'never' %}
+              <button class="ver_respuesta" data-checking="Cargando..." data-value="Ver Respuesta">
+                <span class="icon fa fa-info-circle" aria-hidden="true"></span></br>
+                <span>Mostrar<br/>Respuesta</span>
+              </button>
+            {% elif xblock.show_answer == 'Finalizado' and no_more_attempts and show_correctness != 'never' %}
+              <button class="ver_respuesta" data-checking="Cargando..." data-value="Ver Respuesta">
+                <span class="icon fa fa-info-circle" aria-hidden="true"></span></br>
+                <span>Mostrar<br/>Respuesta</span>
+              </button>
+            {% elif xblock.show_answer == 'Finalizado' and xblock.is_answered and xblock.max_attempts <= 0 and show_correctness != 'never' %}
+              <button class="ver_respuesta" data-checking="Cargando..." data-value="Ver Respuesta">
+                <span class="icon fa fa-info-circle" aria-hidden="true"></span></br>
+                <span>Mostrar<br/>Respuesta</span>
+              </button>
+            {% endif %}
+  </div>
+      <div class="notificacion" tabindex="-1">
+      </div>
+</div>

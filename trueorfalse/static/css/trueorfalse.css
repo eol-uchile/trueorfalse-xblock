@@ -1,0 +1,233 @@
+/*
+* Studio Edit
+*/
+
+#settings-tab #questions_list .border-question {
+    border-bottom: 1px solid #e5e5e5;
+    padding-top: 15px;
+}
+#settings-tab .setting-button {
+    width: 45%;
+    margin-left: calc(25% + 15px);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#settings-tab .question-button.question-button {
+    width: 100%;
+    padding: 8px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+}
+#settings-tab .question-button.remove-button {
+    background-color: #ec6e14;
+}
+#settings-tab .question-button.remove-button:hover {
+    background-color: #d46313;
+}
+#settings-tab .question-button.add-button {
+    margin-top: 10px;
+    background-color: #2176AE;
+}
+#settings-tab .question-button.add-button:hover {
+    background-color: #195f8e
+}
+
+/*
+* LMS
+*/
+
+.trueorfalse_block .count {
+    font-weight: bold;
+}
+
+/*
+.trueorfalse_block p {
+    cursor: pointer;
+}
+*/
+
+.trueorfalse_block .action .check {
+    height: 40px;
+    vertical-align: middle;
+    border-color: #0075b4;
+    background: #0075b4;
+    color: #fcfcfc;
+    font-size: 16px;
+    text-shadow: none;
+    box-shadow: none;
+    border-width: 1px;
+    border-radius: 0.1875rem;
+    width: auto;
+    height: auto;
+    padding: 0.625rem 1.25rem;
+    font-weight: normal;
+    text-shadow: none;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+  
+.trueorfalse_block .action .check:hover {
+    background-color: #065683;
+ }
+
+ .trueorfalse_block .action .check[disabled=disabled], .trueorfalse_block .action .check:disabled {
+    border-color: #d2d0d0;
+    background: #f2f3f3!important;
+    color: #676666;
+    cursor:auto;
+    border-style: solid;
+}
+
+/* escondo radio buttons */
+.trueorfalse_block .radiovof{
+    display:none;
+}
+
+.trueorfalse_block .submission-feedback{
+    padding: 10px;
+    color: #5e5e5e;
+    font-size: 0.9em;
+}
+
+.trueorfalse_block .notificacion.correcto.lineaarriba{
+    border-top: 3px solid #008100;
+}
+
+.trueorfalse_block .notificacion.incorrecto.lineaarriba{
+    border-top: 3px solid #b20610;;
+}
+
+.trueorfalse_block .notificacion.incorrecto.parcial.lineaarriba{
+    border-top: 3px solid #008100;
+}
+
+.trueorfalse_block .notificacion.dontshowcorrectness.lineaarriba{
+    border-top: 3px solid #0075b4;
+}
+
+.trueorfalse_block .notificacion.dontshowcorrectness .fa-info-circle{
+    margin-right: 15px;
+    color: #0075b4;
+}
+
+.trueorfalse_block .notificacion{
+    margin-top: 10px;
+    padding: 8px 10px 4px 10px;
+}
+
+.trueorfalse_block .notificacion img{
+    width: 16px;
+    margin-right: 14px;
+}
+
+.trueorfalse_block .action{
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.trueorfalse_block .ver_respuesta{
+    float:right;
+    font-size:14px;
+    line-height: 1.3;
+    cursor: pointer;
+    border: none;
+    color: #0066a2;
+    background-color: transparent;
+    background-image: none;
+    padding: 10px;
+    font-weight: 400;
+}
+
+.trueorfalse_block .ver_respuesta:hover{
+    border: 1px solid;
+    border-color: #0075b4;
+    border-radius: 3px;
+    background-image: none;
+    background-color: transparent;
+    font-weight: 400;
+}
+
+.trueorfalse_block .capa_alert {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: 1px solid #ebe8bf;
+    border-radius: 3px;
+    background: #fffcdd;
+    font-size: 0.9em;
+}
+
+/*CSS Tabla*/
+
+.trueorfalse_block .tablagrande {
+    display: table;
+    background-color: #a0a0a0;
+    border-radius: 5px;
+    border-spacing: 1px;
+    line-height: 1.2;
+    margin: auto;
+    /* para corregir bug en edx con palabras largas */
+    word-break: normal;
+}
+.trueorfalse_block .tablagrande .botonResponderchico{margin: 0;}
+.trueorfalse_block .tablagrande [class^=dtrow]{display: table-row;color:#727277; }
+.trueorfalse_block .tablagrande [class^=dtcell]{display: table-cell;text-align: left;vertical-align: middle;background-color: #fff;box-sizing: border-box;padding: 10px 25px;position: relative;}
+.trueorfalse_block .tablagrande .dtrowh [class^=dtcell]{padding: 10px 25px; }
+.trueorfalse_block .tablagrande .dtcell1{width: 500px;}
+.trueorfalse_block .tablagrande .dtcell2{width: 80px;}
+.trueorfalse_block .tablagrande .dtcell3{width: 80px;}
+.trueorfalse_block .tablagrande .dtcell4{width: 150px;}
+.trueorfalse_block .tablagrande .dtcell8 .respfrac{left: 120px;top:53px;}
+.trueorfalse_block .tablagrande [class^=dtrow]:first-child [class^=dtcell1]:first-child{border-radius: 5px 0 0 0;}
+.trueorfalse_block .tablagrande [class^=dtrow]:first-child [class^=dtcell2]:last-child{border-radius: 0 5px 0 0;}
+.trueorfalse_block .tablagrande [class^=dtrow]:last-child [class^=dtcell1]:first-child{border-radius: 0 0 0 5px;}
+.trueorfalse_block .tablagrande [class^=dtrow]:last-child [class^=dtcell2]:last-child{border-radius: 0 0 5px 0;}
+.trueorfalse_block .tablagrande [class^=dtrow]:only-child [class^=dtcell1]:first-child{border-radius: 5px 0 0 5px;}
+.trueorfalse_block .tablagrande [class^=dtrow]:only-child [class^=dtcell2]:last-child{border-radius: 0 5px 5px 0;}
+
+.trueorfalse_block .tablagrande.noclick {
+    pointer-events:none;
+}
+
+.trueorfalse_block .opcV { 
+    background-color: #868686;
+    cursor: pointer;
+    border-radius: 30px;
+    text-align: center;
+    padding: 5px;
+    font-weight: 900;
+    font-size: 16px;
+    color: white;
+}
+
+.trueorfalse_block .opcF { 
+    background-color: #868686;
+    cursor: pointer;
+    border-radius: 30px;
+    text-align: center;
+    padding: 5px;
+    font-weight: 900;
+    font-size: 16px;
+    color: white;
+}
+
+.trueorfalse_block .selv {background-color: #2176AE;}
+.trueorfalse_block .self {background-color: #2176AE;}
+.trueorfalse_block .selv.correct {background-color: #268800;}
+.trueorfalse_block .self.correct {background-color: #268800;}
+.trueorfalse_block .selv.incorrect {background-color: #e81212;}
+.trueorfalse_block .self.incorrect {background-color: #e81212;}
+
+
+.trueorfalse_block .vof-header{
+    margin-bottom: 10px;
+    font-size: 1.35em;
+    color: #4c4c4c;
+}
+
+.trueorfalse_block .problem-progress{
+    color: #666;
+    font-size: 0.875em;
+    padding-bottom: 20px;
+}
