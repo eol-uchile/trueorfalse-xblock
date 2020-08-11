@@ -110,20 +110,24 @@ function TrueOrFalseXBlock(runtime, element, settings) {
                 if ($element.find('.opcV'+key).hasClass('selv')) {
                     // correct
                     $element.find('.opcV'+key).addClass('correct');
+                    $element.find('.opcV'+key).html('&#x2713;')
 
                 } else {
                     // incorrect
                     $element.find('.opcF'+key).addClass('incorrect');
+                    $element.find('.opcF'+key).html('&#x2715;')
                 }
             }
             else{
                 if ($element.find('.opcF'+key).hasClass('self')) {
                     // correct
                     $element.find('.opcF'+key).addClass('correct');
+                    $element.find('.opcF'+key).html('&#x2713;')
 
                 } else {
                     // incorrect
                     $element.find('.opcV'+key).addClass('incorrect');
+                    $element.find('.opcV'+key).html('&#x2715;')
                 }
             }
           });

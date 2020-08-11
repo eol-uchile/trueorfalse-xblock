@@ -212,8 +212,8 @@
     color: white;
 }
 
-.trueorfalse_block .selv {background-color: #2176AE;}
-.trueorfalse_block .self {background-color: #2176AE;}
+.trueorfalse_block .selv {background-color: #009cdd;}
+.trueorfalse_block .self {background-color: #009cdd;}
 .trueorfalse_block .selv.correct {background-color: #268800;}
 .trueorfalse_block .self.correct {background-color: #268800;}
 .trueorfalse_block .selv.incorrect {background-color: #e81212;}
