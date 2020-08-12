@@ -154,7 +154,7 @@ function TrueOrFalseXBlock(runtime, element, settings) {
         // enable submit if all questions are answered
         answers_quantity = $element.find('.radiovof:checked').length;
         question_quantity = $element.find('.opcV').length;
-        if(statusDiv.hasClass("unanswered") && answers_quantity === question_quantity){
+        if(statusDiv.hasClass("unanswered") && answers_quantity === question_quantity && !settings.is_past_due){
             buttonCheck.attr("disabled", false);
         }
     });
